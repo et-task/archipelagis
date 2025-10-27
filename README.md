@@ -12,7 +12,7 @@ In GQIS, go to Layer > Add Layer > Add Delimited Text Layer.
 - Add.
 <br/>
 
-<b> paavo_municipality_codes_2024.csv <b/>
+<b> "paavo_municipality_codes_2024.csv" <b/>
 <br/>
 The paavo_municipality_codes_2024.csv is derived from <br/>
 "Postal code - municipality key 2024" Excel file available at <br/>
