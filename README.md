@@ -19,6 +19,7 @@ In GQIS, go to Layer > Add Layer > Add Delimited Text Layer.
 - Encoding: latin1
 - File format: Custom delimiters > Semicolon
 - Layer Settings: change "Municipality code" data type into "Text (string)"
+- Add.
 <br/>
 The paavo_municipality_codes_2024.csv is derived from <br/>
 "Postal code - municipality key 2024" Excel file available at <br/>
@@ -33,6 +34,7 @@ Attribute description: <br/>
 - 65_69 = 65-69 years old population (the rest of the age groups have similar logic)
 - elderly = paavo pt_elakel attribute renamed, refers to pensioners (those who receive pension)
 - mun = municipality name
+<br/>
 <br/>
 <b> "paavo_2045" </b>
 Folder includes the "paavo_sw_f_2045.shp" file. <br/>
