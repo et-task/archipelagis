@@ -42,8 +42,8 @@ function pop_paavo_2045(feature, layer) {
   var props = feature.properties || {};
   var areaKm2 = (props.area != null && !isNaN(props.area)) ? (props.area / 1000000).toFixed(2) + ' km²' : '';
   var elderly2045 = props['2045_65-74'] + props['2045_75-'];
-  if (elderly2045 != 0) {
-    var percentage = Math.round((props['elderly']-elderly2045)/elderly2045*100) + ' %';
+  if (props['elderly'] != 0) {
+    var percentage = Math.round((elderly2045-props['elderly'])/props['elderly']*100) + ' %';
   } else {
     var percentage = '→ 0 in 2045'
   }
