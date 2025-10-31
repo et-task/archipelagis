@@ -42,13 +42,25 @@ function pop_paavo_2045(feature, layer) {
   var props = feature.properties || {};
   var areaKm2 = (props.area != null && !isNaN(props.area)) ? (props.area / 1000000).toFixed(2) + ' km²' : '';
   var elderly2045 = props['2045_65-74'] + props['2045_75-'];
-  var difference = elderly2045 - props['elderly'];
+  if (elderly2045 != 0) {
+    var percentage = Math.round((props['elderly']-elderly2045)/elderly2045*100) + ' %';
+  } else {
+    var percentage = '→ 0 in 2045'
+  }
+  if (props['2045_total'] != null) {
+    var projected_total = props['2045_total']
+  } else {
+    projected_total = 'N/A'; //not available
+  }
+  
+  //var difference = elderly2045 - props['elderly'];
+  //var percentage = Math.round((elderly2045 - props['elderly'])/elderly2045*100) + ' %';
   var popupContent = '<table>' +
       '<tr><th scope="row">Municipality</th><td>' + props.mun + '</td></tr>' +
       '<tr><th scope="row">Year</th><td>2045</td></tr>' +
       '<tr><th scope="row">Elderly (65+)</th><td>' + elderly2045 + '</td></tr>' +
-      '<tr><th scope="row">Difference in elderly</th><td>' + difference + '</td></tr>' +
-      '<tr><th scope="row">Projected total</th><td>' + props['2045_total'] + '</td></tr>' +
+      '<tr><th scope="row">Change in elderly</th><td>' + percentage + '</td></tr>' +
+      '<tr><th scope="row">Projected total</th><td>' + projected_total + '</td></tr>' +
       '<tr><th scope="row">Area</th><td>' + areaKm2 + '</td></tr>' +
       '</table>';
   layer.bindPopup(popupContent, { maxHeight: 400 });
