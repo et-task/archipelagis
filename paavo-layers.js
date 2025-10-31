@@ -42,10 +42,12 @@ function pop_paavo_2045(feature, layer) {
   var props = feature.properties || {};
   var areaKm2 = (props.area != null && !isNaN(props.area)) ? (props.area / 1000000).toFixed(2) + ' km²' : '';
   var elderly2045 = props['2045_65-74'] + props['2045_75-'];
-  if (props['elderly'] != 0) {
-    var percentage = Math.round((elderly2045-props['elderly'])/props['elderly']*100) + ' %';
+
+  //in case the elderly population was 0 in 2024
+  if (props['elderly'] == 0) {
+    var percentage = '+';
   } else {
-    var percentage = '→ 0 in 2045'
+    var percentage = Math.round((elderly2045-props['elderly'])/props['elderly']*100) + ' %';
   }
   if (props['2045_total'] != null) {
     var projected_total = props['2045_total']
