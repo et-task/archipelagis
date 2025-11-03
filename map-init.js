@@ -57,10 +57,17 @@ var overlayMaps = {};
 
 
 //legend code source: https://codepen.io/haakseth/pen/KQbjdO'
+//medical marker code source: https://stackoverflow.com/questions/37701211/custom-legend-image-as-legend-in-leaflet-map
+
 var legend = L.control({ position: "bottomright" });
 
+marker_labels = ["Public", "Private", "Hospitals"]
+marker_sources = ["./house_marker.png", "./house_marker.png", "./house_marker.png"]
+
 legend.onAdd = function() {
+
   var div = L.DomUtil.create("div", "legend");
+  
   div.innerHTML += "<h4>2024</h4>"; //the 2024 layer legend
   div.innerHTML += '<i style="background: #00cc92","></i><span>2024</span><br>'; 
   div.innerHTML += "<h4>2045</h4>"; //the 2045 layer legend
@@ -70,7 +77,12 @@ legend.onAdd = function() {
   div.innerHTML += '<i style="background: #FFFFBF"></i><span>11-25 %</span><br>';
   div.innerHTML += '<i style="background: #FDAE61"></i><span>26-50 %</span><br>';
   div.innerHTML += '<i style="background: #D7191C"></i><span>50 < %</span><br>';
+  div.innerHTML += "<h4>Medical Services</h4>"; //Medical Services layer legend
+  for (var i = 0; i < marker_labels.length; i++) {
+        div.innerHTML += ("<img src="+ marker_sources[i] +" height='20' width='20'>") + " " + marker_labels[i] +'<br>';
+    }
   return div;
+
 };
 
 legend.addTo(map);
