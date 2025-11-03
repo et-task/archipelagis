@@ -12,6 +12,7 @@ loadGeoJSON('./docs/SW_geo.geojson', {
 })
 .then(function(layer) {
   overlayMaps["SW Finland"] = layer;
+
   return loadGeoJSON('./docs/paavo_2024/paavo_SW_2024.geojson', {
     style: layerStyles.paavo2024,
     onEachFeature: pop_paavo_2024
@@ -19,13 +20,15 @@ loadGeoJSON('./docs/SW_geo.geojson', {
 })
 .then(function(layer) {
   paavo2024Layer = layer;
+
   return loadGeoJSON('./docs/paavo_2045/paavo_sw_2045.geojson', {
-    style: layerStyles.paavo2045,
+    style: style_paavo_2045,
     onEachFeature: pop_paavo_2045
   });
 })
 .then(function(layer) {
   paavo2045Layer = layer;
+
   document.getElementById('btn2024').addEventListener('click', function() {
     togglePaavoLayer('2024');
   });
@@ -57,13 +60,13 @@ loadGeoJSON('./docs/SW_geo.geojson', {
       }
     }, 1000);
   }
-  //L.control.layers(baseMaps, overlayMaps).addTo(map);
+  L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
 })
 .catch(function(error) {
   console.error("Error loading layers:", error);
-  //L.control.layers(baseMaps, overlayMaps).addTo(map);
+  L.control.layers(baseMaps, overlayMaps).addTo(map);
 });
 
 
