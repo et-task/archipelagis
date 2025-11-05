@@ -72,95 +72,13 @@ function pop_paavo_2045(feature, layer) {
   layer.bindPopup(popupContent, { maxHeight: 400 });
 }
 
-//style function for the paavo 2024 layer
-//note: currently no data for total population, would have to calculate from the original paavo data
-/*
-function style_paavo_2024(feature) {
-  switch(String(feature.properties['desig'])) {
-      case 'Conservation Area':
-          return {
-      pane: 'pane_TanzaniaNationalParks2016_1',
-      opacity: 1,
-      color: 'rgba(0,0,0,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 1,
-      fillColor: 'rgba(77,175,74,1.0)',
-      interactive: true,
-  }
-          break;
-      case 'Game Reserve':
-          return {
-      pane: 'pane_TanzaniaNationalParks2016_1',
-      opacity: 1,
-      color: 'rgba(1,1,1,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 1,
-      fillColor: 'rgba(220,240,87,1.0)',
-      interactive: true,
-  }
-          break;
-      case 'National Park':
-          return {
-      pane: 'pane_TanzaniaNationalParks2016_1',
-      opacity: 1,
-      color: 'rgba(0,0,0,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 1,
-      fillColor: 'rgba(77,175,74,1.0)',
-      interactive: true,
-  }
-          break;
-      case 'Open area':
-          return {
-      pane: 'pane_TanzaniaNationalParks2016_1',
-      opacity: 1,
-      color: 'rgba(0,0,0,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 1,
-      fillColor: 'rgba(245,224,33,1.0)',
-      interactive: true,
-  }
-          break;
-      case 'Wildlife Management Area':
-          return {
-      pane: 'pane_TanzaniaNationalParks2016_1',
-      opacity: 1,
-      color: 'rgba(0,0,0,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 1,
-      fillColor: 'rgba(19,112,33,1.0)',
-      interactive: true,
-  }
-          break;
-  }
-}*/
-
 
 function style_paavo_2045(feature) {
   var props = feature.properties || {};
   var elderly2045 = props['2045_65-74'] + props['2045_75-'];
   var percentage = Math.round((elderly2045-props['elderly'])/props['elderly']*100)
-  if (percentage < 0) {
+  //added ()
+  if (percentage >= -17 && percentage <=0) {
     return {
       opacity: 0.9,
       color: 'rgba(0,0,0,1.0)',
@@ -182,7 +100,7 @@ function style_paavo_2045(feature) {
       weight: 1.0, 
       fill: true,
       fillOpacity: 0.6,
-      fillColor: '#ABD9E9',
+      fillColor: '#FFFFBF',
       interactive: true, }  
   } else if (percentage > 10 && percentage <=25) {
     return {
@@ -194,9 +112,9 @@ function style_paavo_2045(feature) {
       weight: 1.0, 
       fill: true,
       fillOpacity: 0.6,
-      fillColor: '#FFFFBF',
+      fillColor: '#FDAE61',
       interactive: true, }
-  } else if (percentage > 25 && percentage <=50) {
+  } else if (percentage > 25 && percentage <=46) {
     return {
       opacity: 0.9,
       color: 'rgba(0,0,0,1.0)',
@@ -206,7 +124,7 @@ function style_paavo_2045(feature) {
       weight: 1.0, 
       fill: true,
       fillOpacity: 0.6,
-      fillColor: '#FDAE61',
+      fillColor: '#D73027',
       interactive: true, }
   } else {
     return {
@@ -218,7 +136,7 @@ function style_paavo_2045(feature) {
       weight: 1.0, 
       fill: true,
       fillOpacity: 0.6,
-      fillColor: '#D7191C',
+      fillColor: '#e3e1e1',
       interactive: true, }
   }
 }

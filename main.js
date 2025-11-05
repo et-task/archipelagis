@@ -49,7 +49,7 @@ loadGeoJSON('./docs/SW_geo.geojson', {
     overlayMaps[medicalLayer.name] = medicalLayer.layer;
     medicalLayer.layer.addTo(map);
 
-    togglePaavoLayer('2024');
+    togglePaavoLayer('2045');
 
     setTimeout(() => {
       try {
