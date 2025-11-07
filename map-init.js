@@ -62,7 +62,7 @@ var overlayMaps = {};
 var legend = L.control({ position: "bottomright" });
 
 marker_labels = ["Public", "Private", "Hospitals"]
-marker_sources = ["./markers/Public_marker.png", "./markers/Private_marker.png", "./markers/Hospital_marker.png"]
+marker_sources = ["./markers/public_marker_black.png", "./markers/private_marker_black.png", "./markers/hospital_marker_black.png"]
 
 legend.onAdd = function() {
 
@@ -84,7 +84,7 @@ legend.onAdd = function() {
 
   div.innerHTML += "<h4>Medical Services</h4>"; //Medical Services layer legend
   for (var i = 0; i < marker_labels.length; i++) {
-        div.innerHTML += ("<img src="+ marker_sources[i] +" height='20' width='20'>") + " " + marker_labels[i] +'<br>';
+        div.innerHTML += ("<img src="+ marker_sources[i] +" height='25' width='25'>") + " " + marker_labels[i] +'<br>';
     }
     
   return div;
