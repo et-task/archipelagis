@@ -33,27 +33,27 @@ var medicalIcon = L.icon({
 
 var hospitalIcon = L.icon({
   className: 'medical-marker',
-  iconUrl: './house_marker.png', //url 
+  iconUrl: './markers/Hospital_marker.png', //url 
 
-  iconSize:     [40, 40], 
+  iconSize:     [20, 20], 
   iconAnchor:   [10, 10],
   popupAnchor:  [-3, -76] 
 });
 
 var publicIcon = L.icon({
   className: 'medical-marker',
-  iconUrl: './house_marker.png', //url 
+  iconUrl: './markers/Public_marker.png', //url 
 
-  iconSize:     [40, 40], 
+  iconSize:     [20, 20], 
   iconAnchor:   [10, 10], 
   popupAnchor:  [-3, -76] 
 });
 
 var privateIcon = L.icon({
   className: 'medical-marker',
-  iconUrl: './house_marker.png', //url 
+  iconUrl: './markers/Private_marker.png', //url 
 
-  iconSize:     [40, 40], 
+  iconSize:     [20, 20], 
   iconAnchor:   [10, 10], 
   popupAnchor:  [-3, -76] 
 });

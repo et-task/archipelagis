@@ -62,7 +62,7 @@ var overlayMaps = {};
 var legend = L.control({ position: "bottomright" });
 
 marker_labels = ["Public", "Private", "Hospitals"]
-marker_sources = ["./house_marker.png", "./house_marker.png", "./house_marker.png"]
+marker_sources = ["./markers/Public_marker.png", "./markers/Private_marker.png", "./markers/Hospital_marker.png"]
 
 legend.onAdd = function() {
 
