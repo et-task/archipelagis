@@ -7,12 +7,22 @@
 function pop_medical(feature, layer) {
     const props = feature.properties || {};
     let popupContent = (props.kohteen_ni || '') + '</h3><table>';
-    if (props.palvelukoh) {
-    popupContent += '<tr><th scope="row">Service Type</th><td>' + props.palvelukoh + '</td></tr>';
+    let service_type;
+    if (props.palvelukoh == 'Kunnalliset terveyskeskukset') {
+      service_type = 'Municipal Health Centers'
     }
-    if (props.palvelut) {
-    popupContent += '<tr><th scope="row">Services</th><td>' + props.palvelut + '</td></tr>';
+    else if (props.palvelukoh == 'Yksityiset lääkäripalvelut') {
+      service_type = 'Private Medical Services'
+    } else if (props.palvelukoh == 'Sairaalat') {
+      service_type = "Hospitals"
     }
+    
+    if (service_type) {
+    popupContent += '<tr><th scope="row">Service Type</th><td>' + service_type + '</td></tr>';
+    }
+    //if (props.palvelut) {
+    //popupContent += '<tr><th scope="row">Services</th><td>' + props.palvelut + '</td></tr>';
+    //}
     popupContent += '</table></div>';
     layer.bindPopup(popupContent, { maxHeight: 400, maxWidth: 400 });
 }
