@@ -70,10 +70,9 @@ legend.onAdd = function() {
   
   div.innerHTML += "<h4>2024</h4>"; //the 2024 layer legend
   div.innerHTML += "<h5>Elderly population proportion</h5>"; 
-  div.innerHTML += '<i style="background: #FFF5E0"></i><span>0 – 15 %</span><br>';
-  div.innerHTML += '<i style="background: #FDDFA0"></i><span>16 – 25 %</span><br>';
-  div.innerHTML += '<i style="background: #FDBB60"></i><span>26 – 35 %</span><br>';
-  div.innerHTML += '<i style="background: #F46A25"></i><span>36 – 45 %</span><br>';
+  div.innerHTML += '<i style="background: #FFF5E0"></i><span>0 – 3 %</span><br>';
+  div.innerHTML += '<i style="background: #FDBB60"></i><span>4 – 15 %</span><br>';
+  div.innerHTML += '<i style="background: #F46A25"></i><span>16 – 36 %</span><br>';
 
   div.innerHTML += "<h4>2045</h4>"; //the 2045 layer legend
   div.innerHTML += "<h5>Elderly population change</h5>"; 

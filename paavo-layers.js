@@ -73,11 +73,11 @@ function pop_paavo_2045(feature, layer) {
 function style_paavo_2024(feature) {
   var props = feature.properties || {};
   var elderly = props.elderly;
-  var percentage = elderly/totalElderly * 100
+  var percentage = elderly/totalElderly * 100;
 
   console.log("percentage is: " + percentage);
 
-  if (percentage <= 15) {
+  if (percentage <= 3) {
     return {
       opacity: 0.9,
       color: 'rgba(0,0,0,1.0)',
@@ -88,20 +88,8 @@ function style_paavo_2024(feature) {
       fill: true,
       fillOpacity: 0.6,
       fillColor: '#FFF5E0',
-      interactive: true, }
-  } else if (percentage > 15 && percentage <=25) {
-    return {
-      opacity: 0.9,
-      color: 'rgba(1,1,1,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 0.6,
-      fillColor: '#FDDFA0',
-      interactive: true, }  
-  } else if (percentage > 25 && percentage <=35) {
+      interactive: true, } 
+  } else if (percentage > 3 && percentage <= 15) {
     return {
       opacity: 0.9,
       color: 'rgba(0,0,0,1.0)',
@@ -113,8 +101,8 @@ function style_paavo_2024(feature) {
       fillOpacity: 0.6,
       fillColor: '#FDBB60',
       interactive: true, }
-  } else if (percentage > 35 && percentage <=45) {
-    return {
+} else {
+  return {
       opacity: 0.9,
       color: 'rgba(0,0,0,1.0)',
       dashArray: '',
@@ -125,19 +113,7 @@ function style_paavo_2024(feature) {
       fillOpacity: 0.6,
       fillColor: '#F46A25',
       interactive: true, }
-  } else {
-    return {
-      opacity: 0.9,
-      color: 'rgba(0,0,0,1.0)',
-      dashArray: '',
-      lineCap: 'butt',
-      lineJoin: 'miter',
-      weight: 1.0, 
-      fill: true,
-      fillOpacity: 0.6,
-      fillColor: '#B42000',
-      interactive: true, }
-  }
+}
 }
 
 
